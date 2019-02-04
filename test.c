@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:07:50 by mfierlaf          #+#    #+#             */
-/*   Updated: 2018/12/15 18:55:43 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:49:15 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*test(char *line)
 	char tmp[4][4];
 	int i;
 	int k;
-	char *stock[4];
+	char stock[4];
 
 	cpt = 0;
 	k = 0;
@@ -30,7 +30,6 @@ char	*test(char *line)
 			tmp[k][i] = *line[i];
 			if (line[i] == CROIX)
 			{
-				tmp[k][i] = 'A' + j;
 				cpt++;
 			}
 			i++;
@@ -118,7 +117,8 @@ char	**final_stock()
 	while ((ret = read(fd, line,  21)) == 21)
 	{
 		cpt = 0;
-		tab[i] = test(line);
+		if ((tab[i] = test(line)) == NULL)
+			return (NULL);
 		min = range(tab[i]);
 		while (tab[i][cpt])
 		{
@@ -127,7 +127,7 @@ char	**final_stock()
 		}
 		i++;
 	}
-	if (ret != 21 && ret != 0)
+	if (ret != 20 && ret != 0)
 		return (NULL);
 	return (tab);
 }

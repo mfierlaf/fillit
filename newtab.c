@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 08:37:57 by mfierlaf          #+#    #+#             */
-/*   Updated: 2018/12/18 08:47:11 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/02/04 14:59:20 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	**newtab(int i)
 	res = malloc(sizeof(char*) * i);
 	while (j <= i)
 	{
-		res[i] = ft_memalset(i, ".");
-		i++;
+		res[j] = ft_memalset(j, ".");
+		j++;
 	}
 	return (res)
 }
