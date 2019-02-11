@@ -1,133 +1,81 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 17:07:50 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/04 18:49:15 by mfierlaf         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "fillit.h"
 
-include "fillit.h"
-
-char	*test(char *line)
+int	test(char *line)
 {
 	int cpt;
-	char tmp[4][4];
 	int i;
 	int k;
-	char stock[4];
-
+	int j;
+	char **tab;
+  int n = 0;
 	cpt = 0;
 	k = 0;
-	while (line)
+	j = 0;
+  tab = malloc(sizeof(char*) * 4);
+  while (n < 5)
+    {
+      tab[n] = ft_strnew(5);
+      n++;
+    }
+    n = 0;
+    if (line[20] != '\0' && line[20] != '\n')
+      return (0);
+	while (n < 21)
 	{
 		i = 0;
-		while (*line[i] != '\0' && line[i] != '\n')
+		while (line[n] != '\0' && line[n] != '\n')
 		{
-			tmp[k][i] = *line[i];
-			if (line[i] == CROIX)
+      if (line[n] != '.' && line[n] != '#')
+        return (0);
+			tab[k][i] = line[n];
+			if (line[n] == '#')
 			{
-				cpt++;
+					cpt++;
+					if (n != 21 && line[n] == line[n + 1])
+						j++;
+					if (n != 0 && line[n] == line[n - 1])
+						j++;
+					if (n > 5 && line[n] == line[n - 5])
+						j++;
+					if (n < 15 && line[n] == line[n + 5])
+						j++;
 			}
+      n++;
 			i++;
-			if (cpt > 3 || i > 4)
-				return (NULL);
 		}
+    n++;
 		k++;
-		if (k > 4)
-			return (NULL);
-		if (k = 4)
-			j++;
-	};
-	k = 0;
-	i = 0;
-	cpt--;
-	While (cpt >= 0 )
-	{
-		if(tmp[k][i] == CROIX)
-		{
-			stock[cpt] = (k * 10) + i;
-			cpt--;
-		}
-		if (i == 4 && k < 4)
-		{
-			k++;
-			i = 0;
-		}
-		if (i == 4 && k == 4)
-		{
-			j++;
-			i = 0;
-			k = 0;
-		}
-		else
-			i++;
 	}
-	k = 0;
-	while (cpt < 4)
-	{
-		i = 0;
-		while (i < 4)
-		{
-			if (stock[cpt] == (stock[i] - 10) || stock[cpt] == (stock[i] + 10) 
-					|| stock[cpt] == (stock[i] - 1) || stock[cpt] == (stock[i] +1))
-				k++;
-			i++;
-		}
-		cpt++;
-	}
-	if (k == 6 || k == 8)
-		return(stock);
+  if (cpt > 4 || i > 4 || k != 5)
+    return (0);
+	if (j == 6 || j == 8)
+		return (1);
 	else
-		return (NULL);
+		return (0);
 }
 
-int		min(char *stock)
+void clean(char **tab)
 {
-	int range;
-	int i;
+  int   i;
+  int   k;
+  int   mini;
+  int   mink;
 
-	i = 0;
-	range = stock[i];
-	while (i < 4)
-	{
-		if (range < stock[i])
-			range = stock[i];
-		i++;
-	}
-	return (range);
-}
-
-char	**final_stock()
-{
-	char 	tab[26][4];
-	char	*line;
-	int 	fd;
-	int		i;
-	int		cpt;
-	int 	min;
-	int ret;
-
-	i = 0;
-	line = NULL;
-	fd = open(map, O_RDONLY);
-	while ((ret = read(fd, line,  21)) == 21)
-	{
-		cpt = 0;
-		if ((tab[i] = test(line)) == NULL)
-			return (NULL);
-		min = range(tab[i]);
-		while (tab[i][cpt])
-		{
-			tab[i][cpt] = tab[i][cpt] - range;
-			cpt++;
-		}
-		i++;
-	}
-	if (ret != 20 && ret != 0)
-		return (NULL);
-	return (tab);
+  k = 0;
+  while (k < 4)
+  {
+    i = 0;
+    while (i < 4)
+    {
+      if (tab[k][i] == '#')
+      {
+        if (i < mini)
+          mini = i;
+        if (k < mink)
+          mink = k;
+      }
+      i++;
+    }
+    k++;
+  }
 }
