@@ -54,14 +54,19 @@ int	test(char *line)
 		return (0);
 }
 
-void clean(char **tab)
+int *clean(char **tab)
 {
   int   i;
   int   k;
+  int	j;
   int   mini;
   int   mink;
+  int	pos[4];
 
   k = 0;
+  j = 0;
+  mini = 0;
+  mink = 0;
   while (k < 4)
   {
     i = 0;
@@ -69,13 +74,20 @@ void clean(char **tab)
     {
       if (tab[k][i] == '#')
       {
-        if (i < mini)
-          mini = i;
-        if (k < mink)
-          mink = k;
+		  pos[j] = k * 10 + i;
+		  if (i < mini)
+			  mini = i;
+		  if (k < mink)
+			  mink = k;
+		  j++;
       }
       i++;
     }
     k++;
+  }
+  while (j >= 0)
+  {
+	  pos[j] = pos[j] - (mink * 10 + mini);
+	  j--;
   }
 }
