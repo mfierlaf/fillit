@@ -17,6 +17,6 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 #include <stdlib.h>
-
-int fillit
+#include <stdio.h>
+#include "../libft/libft.h"
 #endif

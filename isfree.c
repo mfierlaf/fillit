@@ -6,18 +6,15 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/15 19:53:43 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/04 19:30:18 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/02/15 06:27:25 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		isfree(char **res, int pos)
+int		isfree(char **res, int i, int k)
 {
-	int i;
-	int k;
-
-	i = pos / 10;
-	k = pos % 10;
-	if (res[i][k] == ".")
+	if (i < 0 || k < 0)
+		return (0);
+	if (res[k][i] == ".")
 		return (1);
 	return (0);
 }

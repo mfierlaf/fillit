@@ -7,47 +7,47 @@ int	test(char *line)
 	int k;
 	int j;
 	char **tab;
-  int n = 0;
+	int n = 0;
 	cpt = 0;
 	k = 0;
 	j = 0;
-  tab = malloc(sizeof(char*) * 4);
-  while (n < 5)
-    {
-      tab[n] = ft_strnew(5);
-      n++;
-    }
-    n = 0;
-    if (line[20] != '\0' && line[20] != '\n')
-      return (0);
+	tab = malloc(sizeof(char*) * 4);
+	while (n < 5)
+	{
+		tab[n] = ft_strnew(5);
+		n++;
+	}
+	n = 0;
+	if (line[20] != '\0' && line[20] != '\n')
+		return (0);
 	while (n < 21)
 	{
 		i = 0;
 		while (line[n] != '\0' && line[n] != '\n')
 		{
-      if (line[n] != '.' && line[n] != '#')
-        return (0);
+			if (line[n] != '.' && line[n] != '#')
+				return (0);
 			tab[k][i] = line[n];
 			if (line[n] == '#')
 			{
-					cpt++;
-					if (n != 21 && line[n] == line[n + 1])
-						j++;
-					if (n != 0 && line[n] == line[n - 1])
-						j++;
-					if (n > 5 && line[n] == line[n - 5])
-						j++;
-					if (n < 15 && line[n] == line[n + 5])
-						j++;
+				cpt++;
+				if (n != 21 && line[n] == line[n + 1])
+					j++;
+				if (n != 0 && line[n] == line[n - 1])
+					j++;
+				if (n > 5 && line[n] == line[n - 5])
+					j++;
+				if (n < 15 && line[n] == line[n + 5])
+					j++;
 			}
-      n++;
+			n++;
 			i++;
 		}
-    n++;
+		n++;
 		k++;
 	}
-  if (cpt > 4 || i > 4 || k != 5)
-    return (0);
+	if (cpt > 4 || i > 4 || k != 5)
+		return (0);
 	if (j == 6 || j == 8)
 		return (1);
 	else
@@ -56,38 +56,39 @@ int	test(char *line)
 
 int *clean(char **tab)
 {
-  int   i;
-  int   k;
-  int	j;
-  int   mini;
-  int   mink;
-  int	pos[4];
+	int   i;
+	int   k;
+	int	j;
+	int   mini;
+	int   mink;
+	int	pos[4];
 
-  k = 0;
-  j = 0;
-  mini = 0;
-  mink = 0;
-  while (k < 4)
-  {
-    i = 0;
-    while (i < 4)
-    {
-      if (tab[k][i] == '#')
-      {
-		  pos[j] = k * 10 + i;
-		  if (i < mini)
-			  mini = i;
-		  if (k < mink)
-			  mink = k;
-		  j++;
-      }
-      i++;
-    }
-    k++;
-  }
-  while (j >= 0)
-  {
-	  pos[j] = pos[j] - (mink * 10 + mini);
-	  j--;
-  }
+	k = 0;
+	j = 0;
+	mini = 0;
+	mink = 0;
+	while (k < 4)
+	{
+		i = 0;
+		while (i < 4)
+		{
+			if (tab[k][i] == '#')
+			{
+				pos[j] = k * 10 + i;
+				if (i < mini)
+					mini = i;
+				if (k < mink)
+					mink = k;
+				j++;
+			}
+			i++;
+		}
+		k++;
+	}
+	while (j >= 0)
+	{
+		pos[j] = pos[j] - (mink * 10 + mini);
+		j--;
+	}
+	return (pos);
 }
