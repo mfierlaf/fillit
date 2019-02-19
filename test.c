@@ -8,6 +8,7 @@ int	test(char *line)
 	int j;
 	char **tab;
 	int n = 0;
+
 	cpt = 0;
 	k = 0;
 	j = 0;
@@ -46,49 +47,10 @@ int	test(char *line)
 		n++;
 		k++;
 	}
-	if (cpt > 4 || i > 4 || k != 5)
+	if (cpt != 4 || i != 4 || k != 5)
 		return (0);
 	if (j == 6 || j == 8)
 		return (1);
 	else
 		return (0);
-}
-
-int *clean(char **tab)
-{
-	int   i;
-	int   k;
-	int	j;
-	int   mini;
-	int   mink;
-	int	pos[4];
-
-	k = 0;
-	j = 0;
-	mini = 0;
-	mink = 0;
-	while (k < 4)
-	{
-		i = 0;
-		while (i < 4)
-		{
-			if (tab[k][i] == '#')
-			{
-				pos[j] = k * 10 + i;
-				if (i < mini)
-					mini = i;
-				if (k < mink)
-					mink = k;
-				j++;
-			}
-			i++;
-		}
-		k++;
-	}
-	while (j >= 0)
-	{
-		pos[j] = pos[j] - (mink * 10 + mini);
-		j--;
-	}
-	return (pos);
 }

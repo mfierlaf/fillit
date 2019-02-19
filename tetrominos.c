@@ -6,13 +6,13 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/15 03:18:27 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:32:48 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char **tetrominos(char *clear)
+int **tetrominos(char *clear)
 {
-	char **tab;
+	int **tab;
 	int cpt;
 	int ret;
 	int fd;
@@ -20,7 +20,7 @@ char **tetrominos(char *clear)
 
 	cpt = 0;
 	fd = open("map", O_RDONLY);
-	if ((tab = malloc(sizeof(char*) * 26)) == NULL)
+	if ((tab = malloc(sizeof(int*) * 26)) == NULL)
 		return (NULL);
 	while ((ret = read(fd, line, 21) == 21))
 	{
@@ -28,7 +28,7 @@ char **tetrominos(char *clear)
 			return (NULL);
 		if ((tab[cpt] = malloc(sizeof(int*) * 4)) == NULL)
 			return (NULL);
-		tab[cpt] = clean(line);
+		tab[cpt] = setmin(line);
 		cpt++;
 	}
 	if (cpt > 26)

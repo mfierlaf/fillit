@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:21:20 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/15 17:37:06 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/02/19 19:16:38 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	*setmin(int *pos)
 	}
 	while (minmod > 0)
 	{
-		pos[minmod] -= (i * - 5);
+		pos[minmod] -= (i * 5);
 		minmod--;
 	}
 	i =  1;
@@ -41,9 +41,10 @@ int	*setmin(int *pos)
 		minmod--;
 		i++;
 	}
+	minmod = 0;
 	while (minmod < 4)
 	{
-		pos[minmod] -= (i * -1);
+		pos[minmod] -= (i * 1);
 		minmod++;
 	}
 	return (pos);

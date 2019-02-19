@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newtab.c                                           :+:      :+:    :+:   */
+/*   pos.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 08:37:57 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/19 19:36:47 by mfierlaf         ###   ########.fr       */
+/*   Created: 2019/02/19 18:19:56 by mfierlaf          #+#    #+#             */
+/*   Updated: 2019/02/19 18:53:57 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*newtab(int i)
+int *pos(char *line)
 {
-	char *res;
-	int j;
+	int cpt;
+	int i;
+	int	*pos;
 
-	j = 0;
-	i *= i;
-	i--;
-	res = malloc(sizeof(char) * i);
-	while (j <= i)
+	i = 0;
+	cpt = 0;
+	pos = malloc(sizeof(int) * 4);
+	while(line[i])
 	{
-		if (j == 11)
-			res[j] = '#';
-		else
-			res[j] = '.';
-		j++;
+		if (line[i] == '#')
+		{
+			pos[cpt] = i;
+			cpt++;
+		}
+		i++;
 	}
-	return (res);
+	return (pos);
 }
