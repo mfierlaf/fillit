@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pos.c                                              :+:      :+:    :+:   */
+/*   switchbase.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 18:19:56 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/20 11:18:20 by mfierlaf         ###   ########.fr       */
+/*   Created: 2019/02/20 11:30:44 by mfierlaf          #+#    #+#             */
+/*   Updated: 2019/02/20 11:37:23 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int *pos(char *line)
+int *switchbase(int *tetro, int size)
 {
-	int cpt;
 	int i;
-	int	*pos;
 
 	i = 0;
-	cpt = 0;
-	pos = malloc(sizeof(int) * 4);
-	while(line[i])
+	while (i < 4)
 	{
-		if (line[i] == '#')
+		if (tetro[i] > 4)
 		{
-			pos[cpt] = i;
-			cpt++;
+			tetro[i] -= 4;
+			tetro[i] += size;
 		}
 		i++;
 	}
-	return (pos);
+	return (tetro);
 }
