@@ -6,18 +6,11 @@ int	test(char *line)
 	int i;
 	int k;
 	int j;
-	char **tab;
-	int n = 0;
+	int n;
 
 	cpt = 0;
 	k = 0;
 	j = 0;
-	tab = malloc(sizeof(char*) * 4);
-	while (n < 5)
-	{
-		tab[n] = ft_strnew(5);
-		n++;
-	}
 	n = 0;
 	if (line[20] != '\0' && line[20] != '\n')
 		return (0);
