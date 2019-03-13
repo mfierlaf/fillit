@@ -6,15 +6,15 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/15 19:53:43 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/15 15:58:59 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/03/13 14:56:08 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		isfree(char **res, int i, int k)
+int		isfree(char **res, int i)
 {
-	if (i < 0 || k < 0)
+	if (i < 0)
 		return (0);
-	if (res[k][i] == ".")
+	if (res[i] == ".")
 		return (1);
 	return (0);
 }

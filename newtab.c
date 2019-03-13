@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 08:37:57 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/20 11:40:14 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/03/13 14:11:56 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ char	*newtab(int i)
 	int j;
 
 	j = 0;
-	i *= i;
+	i = (i * i) + i;
 	res = malloc(sizeof(char) * i);
 	while (j < i)
 	{
-		if (j == 16)
-			res[j] = '#';
-		else
-			res[j] = '.';
+		res[j] = '.';
 		j++;
 	}
 	res[i] = '\0';
