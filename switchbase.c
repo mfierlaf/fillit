@@ -6,23 +6,28 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 11:30:44 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/20 11:37:23 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/03/13 16:08:33 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int *switchbase(int *tetro, int size)
+void switchbase(int ***tetro, int size)
 {
 	int i;
+	int k;
 
 	i = 0;
-	while (i < 4)
+	k = 0;
+	while (*tetro[k])
 	{
-		if (tetro[i] > 4)
+		while (i < 4)
 		{
-			tetro[i] -= 4;
-			tetro[i] += size;
+			if (*tetro[k][i] > 4)
+			{
+				*tetro[k][i] -= 4;
+				*tetro[k][i] += size;
+			}
+			i++;
 		}
-		i++;
+		k++;
 	}
-	return (tetro);
 }

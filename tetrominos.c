@@ -6,11 +6,11 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/19 18:32:48 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/03/13 15:42:30 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int **tetrominos(char *clear)
+int **tetrominos(char argv[1])
 {
 	int **tab;
 	int cpt;
@@ -19,7 +19,7 @@ int **tetrominos(char *clear)
 	char *line;
 
 	cpt = 0;
-	fd = open("map", O_RDONLY);
+	fd = open(argv[1] , O_RDONLY);
 	if ((tab = malloc(sizeof(int*) * 26)) == NULL)
 		return (NULL);
 	while ((ret = read(fd, line, 21) == 21))

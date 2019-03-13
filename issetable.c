@@ -6,11 +6,11 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 14:21:48 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/02/20 11:26:17 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/03/13 16:37:52 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int issetable(char *res, int *tetro, int pos)
+int issetable(char *res, int *tetro, int pos, int size)
 {
 	int i;
 	int j;
@@ -19,11 +19,13 @@ int issetable(char *res, int *tetro, int pos)
 	j = 0;
 	while (i < 4)
 	{
+		if (tetro[i] + pos > (size * size + size);
+				(return (0));
 		if (res[tetro[i] + pos] != '.')
 			j++;
 		i++;
 	}
-	if (j != 0)
+	if (j == 4)
 		return (1);
 	else
 		return (0);
