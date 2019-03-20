@@ -14,11 +14,10 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 {
 	int cpt;
 	int i;
-	int k;
 
 	cpt = 0;
 	i = 0;
-	k = pos[1];
+
 	if (pos[2] == 0)
 	{
 		free(res);
@@ -26,25 +25,38 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 		pos[2] = 1;
 	}
 	switchbase(&tetro, size);
-	if (issetable(res, tetro[k], pos[0]) == 0 && tetro[k + 1] != NULL)
-		fillit(tetro,  res, size, pos);
-	else if (issetable(res, tetro[k], pos[0]) == 0 && pos[0]++ != NULL)
-		fillit(tetro, res, size, pos);
-	else if (issetable(res, tetro[k], pos[0]) == 0 && tetro[k + 1] == NULL &&  pos[0]++ == NULL)
-		fillit(tetro, res, size++, 0);
-/*	while (tetro[k])
-	{
-		if (issetable(res, tetro[k], pos[0]) == 1)
+	if (issetable(res, tetro[k], pos[0]) == 1)
 		{
 			while (i < 4)
 			{
-				res[tetro[k][i] + pos] = k + 'A';
+				res[tetro[pos[1]][i] + pos[0]] = pos[1] + 'A';
 				i++;
 			}
-			i = 0;
-			k++;
-			pos = 0;
+		pos[0]++;
+		pos[1]++;
+		fillit(tetro, res, size, pos);
 		}
+	else if (issetable(res, tetro[pos[1]], pos[0]) == 0 && tetro[pos[1] + 1] != NULL)
+	{
+		pos[1]++;
+		fillit(tetro,  res, size, pos);
+	}
+	else if (issetable(res, tetro[pos[1]], pos[0]) == 0 && pos[0]++ != NULL)
+	{
+		pos[0]++;
+		pos[1] = 0;
+		fillit(tetro, res, size, pos);
+	}
+	else if (issetable(res, tetro[pos[1]], pos[0]) == 0 && tetro[pos[1] + 1] == NULL &&  pos[0]++ == NULL)
+	{
+		pos[0] = 0;
+		pos[1] = 0;
+		pos[2] = 0;
+		fillit(tetro, res, size++, 0);
+	}
+/*	while (tetro[k])
+	{
+
 		pos++;
 
 	}
