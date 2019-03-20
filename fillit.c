@@ -26,7 +26,13 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 		pos[2] = 1;
 	}
 	switchbase(&tetro, size);
-	while (tetro[k])
+	if (issetable(res, tetro[k], pos[0]) == 0 && tetro[k + 1] != NULL)
+		fillit(tetro++,  res, size, pos);
+	else if (issetable(res, tetro[k], pos[0]) == 0 && pos[0]++ != NULL)
+		fillit(tetro[0], res, size, pos++);
+	else if (issetable(res, tetro[k], pos[0]) == 0 && tetro[k + 1] == NULL &&  pos[0]++ == NULL)
+		fillit(tetro[0], res, size++, 0);
+/*	while (tetro[k])
 	{
 		if (issetable(res, tetro[k], pos[0]) == 1)
 		{
@@ -40,6 +46,6 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 			pos = 0;
 		}
 		pos++;
-		if (pos > (size * size + size))
-			fillit(tetro, res, size++, pos);
+
 	}
+*/
