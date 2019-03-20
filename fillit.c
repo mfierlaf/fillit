@@ -18,7 +18,7 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 
 	cpt = 0;
 	i = 0;
-	k = 0;
+	k = pos[1];
 	if (pos[2] == 0)
 	{
 		free(res);
@@ -27,11 +27,11 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 	}
 	switchbase(&tetro, size);
 	if (issetable(res, tetro[k], pos[0]) == 0 && tetro[k + 1] != NULL)
-		fillit(tetro++,  res, size, pos);
+		fillit(tetro,  res, size, pos);
 	else if (issetable(res, tetro[k], pos[0]) == 0 && pos[0]++ != NULL)
-		fillit(tetro[0], res, size, pos++);
+		fillit(tetro, res, size, pos);
 	else if (issetable(res, tetro[k], pos[0]) == 0 && tetro[k + 1] == NULL &&  pos[0]++ == NULL)
-		fillit(tetro[0], res, size++, 0);
+		fillit(tetro, res, size++, 0);
 /*	while (tetro[k])
 	{
 		if (issetable(res, tetro[k], pos[0]) == 1)
