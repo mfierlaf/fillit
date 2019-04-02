@@ -25,7 +25,7 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 		pos[2] = 1;
 	}
 	switchbase(&tetro, size);
-	while (tetro[pos[1][4]] == 0)
+	while (tetro[pos[1][4]] == 1)
 	{
 		pos[1]++;
 	}
