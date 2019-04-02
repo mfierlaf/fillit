@@ -38,7 +38,6 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 		}
 		tetro[pos[1][4]] = 1;
 		pos[0]++;
-		pos[1]++;
 		fillit(tetro, res, size, pos);
 	}
 	else if (issetable(res, tetro[pos[1]], pos[0]) == 0 && tetro[pos[1] + 1] != NULL)
