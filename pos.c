@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 18:19:56 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/02/20 11:18:20 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/04/02 16:52:04 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int *pos(char *line)
 
 	i = 0;
 	cpt = 0;
-	pos = malloc(sizeof(int) * 4);
+	pos = malloc(sizeof(int) * 5);
 	while(line[i])
 	{
 		if (line[i] == '#')
@@ -30,5 +30,6 @@ int *pos(char *line)
 		}
 		i++;
 	}
+	pos[4] = 0;
 	return (pos);
 }
