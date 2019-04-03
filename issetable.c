@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
+
 int issetable(char *res, int *tetro, int pos, int size)
 {
 	int i;
@@ -19,8 +21,8 @@ int issetable(char *res, int *tetro, int pos, int size)
 	j = 0;
 	while (i < 4)
 	{
-		if (tetro[i] + pos > (size * size + size);
-				(return (0));
+		if (tetro[i] + pos > (size * size + size))
+				return (0);
 		if (res[tetro[i] + pos] != '.')
 			j++;
 		i++;

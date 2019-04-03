@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
+
 void switchbase(int ***tetro, int size)
 {
 	int i;
@@ -23,7 +25,7 @@ void switchbase(int ***tetro, int size)
 		{
 			if (*tetro[k][i] > 4)
 			{
-				*tetro[k][i] -= 4;
+				*tetro[k][i] -= (size - 1);
 				*tetro[k][i] += size;
 			}
 			i++;

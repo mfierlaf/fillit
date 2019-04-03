@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isfree.c                                           :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/15 19:53:43 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/03/13 14:56:08 by mfierlaf         ###   ########.fr       */
+/*   Created: 2018/10/17 10:31:39 by tde-brit          #+#    #+#             */
+/*   Updated: 2018/10/17 10:31:40 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		isfree(char **res, int i)
+#include "libft.h"
+
+char	*ft_strnew(size_t size)
 {
-	if (i < 0)
-		return (0);
-	if (res[i] == ".")
-		return (1);
-	return (0);
+	char *dst;
+
+	if ((dst = ((char *)malloc(sizeof(char) * (size + 1)))) == NULL)
+		return (NULL);
+	ft_bzero(dst, size + 1);
+	return (dst);
 }

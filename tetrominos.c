@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int **tetrominos(char argv[1])
+#include "fillit.h"
+
+int **tetrominos(char **argv)
 {
 	int **tab;
 	int cpt;
@@ -18,21 +20,26 @@ int **tetrominos(char argv[1])
 	int fd;
 	char *line;
 
+	line = ft_strnew(20);
 	cpt = 0;
 	fd = open(argv[1] , O_RDONLY);
 	if ((tab = malloc(sizeof(int*) * 26)) == NULL)
 		return (NULL);
-	while ((ret = read(fd, line, 21) == 21))
+	while ((ret = read(fd, line, 21) == 21) || ret == 20)
 	{
-		if (test(line) == 0)
+		if (verif(line) == 0)
 			return (NULL);
-		if ((tab[cpt] = malloc(sizeof(int*) * 4)) == NULL)
-			return (NULL);
-		tab[cpt] = setmin(line);
+		tab[cpt] = pos(line);
+		tab[cpt] = setmin(tab[cpt]);
 		cpt++;
+		if (cpt > 25)
+		{
+			while (cpt >= 0)
+				free(tab[cpt]);
+			free(tab);
+			return (NULL);
+		}
 	}
-	if (cpt > 26)
-		return (NULL);
 	if (ret != 0)
 		return (NULL);
 	return(tab);

@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-int	test(char *line)
+int	verif(char *line)
 {
 	int cpt;
 	int i;
@@ -21,7 +21,7 @@ int	test(char *line)
 		{
 			if (line[n] != '.' && line[n] != '#')
 				return (0);
-			tab[k][i] = line[n];
+//			tab[k][i] = line[n];
 			if (line[n] == '#')
 			{
 				cpt++;
