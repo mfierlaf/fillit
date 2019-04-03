@@ -14,7 +14,7 @@ int	verif(char *line)
 	n = 0;
 	if (line[20] != '\0' && line[20] != '\n')
 		return (0);
-	while (n < 21)
+	while (n < 20)
 	{
 		i = 0;
 		while (line[n] != '\0' && line[n] != '\n')
@@ -40,7 +40,7 @@ int	verif(char *line)
 		n++;
 		k++;
 	}
-	if (cpt != 4 || i != 4 || k != 5)
+	if (cpt != 4 || i != 4 || k != 4)
 		return (0);
 	if (j == 6 || j == 8)
 		return (1);

@@ -35,7 +35,10 @@ int **tetrominos(char **argv)
 		if (cpt > 25)
 		{
 			while (cpt >= 0)
+			{
 				free(tab[cpt]);
+				cpt--;
+			}
 			free(tab);
 			return (NULL);
 		}

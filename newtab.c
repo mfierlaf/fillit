@@ -16,15 +16,21 @@ char	*newtab(int i)
 {
 	char *res;
 	int j;
+	int size;
 
 	j = 0;
+	size = i;
 	i = (i * i) + i;
 	res = malloc(sizeof(char) * i);
 	while (j < i)
 	{
-		res[j] = '.';
+		if (j % size == 0)
+			res[j] = '\n';
+		else
+			res[j] = '.';
 		j++;
 	}
+	res[size] = '\n';
 	res[i] = '\0';
 	return (res);
 }

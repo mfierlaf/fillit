@@ -23,15 +23,16 @@ char	*fillit(int **tetro, char *res, int size, int *pos)
 	printf("n%d\n", printfn++);
 	if (pos[2] == 0)
 	{
+		printf("%d\n", printfn++);
 		free(res);
 		res = newtab(size);
+		switchbase(&tetro, size);
 		pos[2] = 1;
 	}
 	printf("%d\n", printfn++);
-	switchbase(&tetro, size);
-	printf("%d\n", printfn++);
-	while (tetro[pos[1]][4] == 1)
+	while ((tetro[pos[1]][4]) == 1)
 	{
+		printf("%d\n", printfn++);
 		pos[1]++;
 	}
 	printf("%d\n", printfn++);

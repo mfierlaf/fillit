@@ -23,7 +23,7 @@ void switchbase(int ***tetro, int size)
 	{
 		while (i < 4)
 		{
-			if (*tetro[k][i] > 4)
+			if (*tetro[k][i] > size)
 			{
 				*tetro[k][i] -= (size - 1);
 				*tetro[k][i] += size;
