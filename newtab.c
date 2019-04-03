@@ -22,15 +22,18 @@ char	*newtab(int i)
 	size = i;
 	i = (i * i) + i;
 	res = malloc(sizeof(char) * i);
+	res[size] = '\n';
 	while (j < i)
 	{
-		if (j % size == 0)
-			res[j] = '\n';
-		else
-			res[j] = '.';
+		if (j != size)
+		{
+			if (res[j - 3] == '\n')
+				res[j] = '\n';
+			else
+				res[j] = '.';
+		}
 		j++;
 	}
-	res[size] = '\n';
 	res[i] = '\0';
 	return (res);
 }
