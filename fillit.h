@@ -19,12 +19,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "libft/libft.h"
-int 	**tetrominos(char **argv);
+char 	**tetrominos(char **argv);
 int		verif(char *line);
-int 	*pos(char *line);
-int		*setmin(int *pos);
-char	*fillit(int **tetro, char *res, int size, int *pos);
+char 	*pos(char *line);
+char	*setmin(char *pos);
+char	*fillit(char **tetro, char *res, int size, int *pos);
 char	*newtab(int i);
-void 	switchbase(int ***tetro, int size);
-int 	issetable(char *res, int *tetro, int pos, int size);
+void 	switchbase(char ***tetro, int size);
+int 	issetable(char *res, char *tetro, int pos, int size);
 #endif

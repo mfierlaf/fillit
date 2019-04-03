@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int	*setmin(int *pos)
+char	*setmin(char *pos)
 {
 	int i;
 	int minmod;

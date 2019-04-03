@@ -12,9 +12,32 @@
 
 #include "fillit.h"
 
+static char **switchbasemain(char **tetro)
+{
+	int i;
+	int k;
+
+	i = 0;
+	k = 0;
+	while (tetro[k])
+	{
+		i = 0;
+		while (i < 4)
+		{
+			if (tetro[k][i] > 4)
+			{
+				tetro[k][i] -= 4;
+				tetro[k][i] += 2;
+			}
+			i++;
+		}
+		k++;
+	}
+	return (tetro);
+}
 int	main(int argc, char **argv)
 {
-	int	**tab;
+	char	**tab;
 	int	*pos;
 	char *res;
 
@@ -28,6 +51,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if ((tab = tetrominos(argv)) == NULL)
 		return (0);
+	tab = switchbasemain(tab);
 	res = fillit(tab, res, 2, pos);
 	ft_putstr(res);
 	return (0);

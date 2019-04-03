@@ -12,15 +12,15 @@
 
 #include "fillit.h"
 
-int *pos(char *line)
+char *pos(char *line)
 {
-	int cpt;
-	int i;
-	int	*pos;
+	int		cpt;
+	int		i;
+	char	*pos;
 
 	i = 0;
 	cpt = 0;
-	pos = malloc(sizeof(int) * 5);
+	pos = malloc(sizeof(char) * 5);
 	while(line[i])
 	{
 		if (line[i] == '#')
@@ -30,6 +30,6 @@ int *pos(char *line)
 		}
 		i++;
 	}
-	pos[4] = 0;
+	pos[4] = 125;
 	return (pos);
 }

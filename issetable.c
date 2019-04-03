@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int issetable(char *res, int *tetro, int pos, int size)
+int issetable(char *res, char *tetro, int pos, int size)
 {
 	int i;
 	int j;

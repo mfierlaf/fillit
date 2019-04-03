@@ -12,9 +12,9 @@
 
 #include "fillit.h"
 
-int **tetrominos(char **argv)
+char **tetrominos(char **argv)
 {
-	int **tab;
+	char **tab;
 	int cpt;
 	int ret;
 	int fd;
@@ -23,7 +23,7 @@ int **tetrominos(char **argv)
 	line = ft_strnew(20);
 	cpt = 0;
 	fd = open(argv[1] , O_RDONLY);
-	if ((tab = malloc(sizeof(int*) * 26)) == NULL)
+	if ((tab = malloc(sizeof(char*) * 26)) == NULL)
 		return (NULL);
 	while ((ret = read(fd, line, 21) == 21) || ret == 20)
 	{

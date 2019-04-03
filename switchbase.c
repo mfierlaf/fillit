@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void switchbase(int ***tetro, int size)
+void switchbase(char ***tetro, int size)
 {
 	int i;
 	int k;
@@ -21,6 +21,7 @@ void switchbase(int ***tetro, int size)
 	k = 0;
 	while (*tetro[k])
 	{
+		i = 0;
 		while (i < 4)
 		{
 			if (*tetro[k][i] > size)
