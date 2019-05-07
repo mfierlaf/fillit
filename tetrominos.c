@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/03/13 15:42:30 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/07 15:24:49 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,16 @@ char **tetrominos(char **argv)
 	line = ft_strnew(20);
 	cpt = 0;
 	fd = open(argv[1] , O_RDONLY);
-	if ((tab = malloc(sizeof(char*) * 26)) == NULL)
+	if ((tab = malloc(sizeof(char*) * 27)) == NULL)
 		return (NULL);
-	while ((ret = read(fd, line, 21) == 21) || ret == 20)
+	while (cpt <= 26)
+	{
+		tab[cpt] = NULL;
+		cpt++;
+	}
+	cpt = 0;
+	ret = read(fd, line, 21);
+	while (ret == 21 || ret == 20)
 	{
 		if (verif(line) == 0)
 			return (NULL);
@@ -42,6 +49,7 @@ char **tetrominos(char **argv)
 			free(tab);
 			return (NULL);
 		}
+		ret = read(fd, line, 21);
 	}
 	if (ret != 0)
 		return (NULL);
