@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/10 11:22:19 by tde-brit          #+#    #+#             */
-/*   Updated: 2018/10/10 15:44:27 by tde-brit         ###   ########.fr       */
+/*   Created: 2018/10/09 14:29:46 by mfierlaf          #+#    #+#             */
+/*   Updated: 2018/10/18 16:40:51 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,27 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*pdst;
-	unsigned char	*psrc;
-	size_t			i;
+	unsigned char	*res;
+	unsigned char	*origin;
+	int				i;
 
+	res = (unsigned char*)dst;
+	origin = (unsigned char*)src;
 	i = 0;
-	pdst = (unsigned char *)dst;
-	psrc = (unsigned char *)src;
 	if (dst > src)
 	{
 		len--;
 		while ((int)len >= 0)
 		{
-			pdst[len] = psrc[len];
+			res[len] = origin[len];
 			len--;
 		}
+		return (res);
 	}
-	else
+	while (i < (int)len)
 	{
-		while (i < len)
-		{
-			pdst[i] = psrc[i];
-			i++;
-		}
+		res[i] = origin[i];
+		i++;
 	}
-	return (dst);
+	return (res);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/10 10:37:40 by tde-brit          #+#    #+#             */
-/*   Updated: 2018/10/10 10:37:41 by tde-brit         ###   ########.fr       */
+/*   Created: 2018/10/09 14:06:10 by mfierlaf          #+#    #+#             */
+/*   Updated: 2018/10/18 15:49:14 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char	*pdst;
-	unsigned char	*psrc;
-	unsigned int	i;
+	unsigned char	*res;
+	unsigned char	*origin;
 	unsigned char	cc;
+	size_t			i;
 
-	if (dst == src && n == 0)
-		return (dst);
+	res = (unsigned char*)dst;
+	origin = (unsigned char*)src;
 	i = 0;
-	pdst = (unsigned char *)dst;
-	psrc = (unsigned char *)src;
 	cc = (unsigned char)c;
 	while (i < n)
 	{
-		pdst[i] = psrc[i];
-		if (pdst[i] == cc)
-			return (pdst + i + 1);
+		if (origin[i] == cc)
+		{
+			res[i] = origin[i];
+			return (res + i + 1);
+		}
+		res[i] = origin[i];
 		i++;
 	}
 	return (NULL);

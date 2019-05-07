@@ -3,72 +3,112 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 10:34:06 by tde-brit          #+#    #+#             */
-/*   Updated: 2018/10/28 20:04:11 by tde-brit         ###   ########.fr       */
+/*   Created: 2018/10/12 15:03:49 by mfierlaf          #+#    #+#             */
+/*   Updated: 2018/10/26 14:53:58 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_cnt_parts(const char *s, char c)
+static int			taille(char const *s, char c)
 {
-	int		cnt;
-	int		in_substring;
+	int k;
+	int l;
 
-	in_substring = 0;
-	cnt = 0;
-	while (*s != '\0')
+	k = 0;
+	l = 0;
+	if (s[0] != c)
+		k++;
+	while (s[l] != '\0')
 	{
-		if (in_substring == 1 && *s == c)
-			in_substring = 0;
-		if (in_substring == 0 && *s != c)
+		if (s[l] == c && s[l + 1] != c && s[l + 1] != '\0')
+			k++;
+		l++;
+	}
+	return (k);
+}
+
+static	int			longeur(char const *s, char c, int i)
+{
+	int l;
+
+	l = 0;
+	while (s[i] != c && s[i] != '\0')
+	{
+		l++;
+		i++;
+	}
+	return (l);
+}
+
+static	void		ft_free(char **final, int cpt)
+{
+	while (cpt >= 0)
+	{
+		free(final[cpt]);
+		final[cpt] = NULL;
+		cpt--;
+	}
+	free(final);
+	final = NULL;
+}
+
+static	char		**allo(char const *s, char c)
+{
+	int		k;
+	int		l;
+	char	**final;
+	int		i;
+	int		cpt;
+
+	cpt = -1;
+	i = 0;
+	k = taille(s, c);
+	if ((final = ((char**)malloc(sizeof(char*) * (k + 1)))) == NULL)
+		return ((void*)0);
+	while (s[i] != '\0' && cpt++ <= k)
+	{
+		while (s[i] == c)
+			i++;
+		l = longeur(s, c, i);
+		if ((final[cpt] = ((char*)malloc(sizeof(char) * (l + 1)))) == NULL)
 		{
-			in_substring = 1;
-			cnt++;
+			ft_free(final, cpt);
+			return ((void*)0);
 		}
-		s++;
+		i += l - 1;
+		i++;
 	}
-	return (cnt);
+	return (final);
 }
 
-static int	ft_wlen(const char *s, char c)
+char				**ft_strsplit(char const *s, char c)
 {
-	int		len;
-
-	len = 0;
-	while (*s != c && *s != '\0')
-	{
-		len++;
-		s++;
-	}
-	return (len);
-}
-
-char		**ft_strsplit(char const *s, char c)
-{
-	char	**dst;
+	char	**final;
 	int		i;
 	int		j;
 
 	if (s == NULL)
 		return (NULL);
-	i = ft_cnt_parts((char const *)s, c);
+	i = 0;
 	j = 0;
-	if ((dst = (char **)(malloc(sizeof(*dst) * (i + 1)))) == NULL)
+	final = allo(s, c);
+	if (final == NULL)
 		return (NULL);
-	while (i > 0)
+	while (*s)
 	{
-		while (*s == c && *s != '\0')
+		j = 0;
+		while (*s == c)
 			s++;
-		dst[j] = ft_strsub((char const *)s, 0, ft_wlen((char const *)s, c));
-		if (dst[j] == NULL)
-			return (ft_freechararray(&dst[j], j));
-		s = s + ft_wlen(s, c);
-		j++;
-		i--;
+		if (*s == '\0')
+			break ;
+		while (*s != c && *s != '\0')
+			final[i][j++] = *s++;
+		final[i][j] = '\0';
+		i++;
 	}
-	dst[j] = 0;
-	return (dst);
+	final[i] = 0;
+	return (final);
 }

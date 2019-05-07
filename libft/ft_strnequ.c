@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 10:33:28 by tde-brit          #+#    #+#             */
-/*   Updated: 2018/10/23 16:59:09 by tde-brit         ###   ########.fr       */
+/*   Created: 2018/10/16 17:18:18 by mfierlaf          #+#    #+#             */
+/*   Updated: 2018/10/23 16:54:15 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	if (!(s1 == NULL || s2 == NULL))
-	{
-		while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
-		{
-			if (s1[i] != s2[i])
-				return (0);
-			i++;
-		}
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < n)
+		i++;
+	if ((s1[i] == '\0' && s2[i] == '\0') || i == n)
 		return (1);
-	}
 	return (0);
 }

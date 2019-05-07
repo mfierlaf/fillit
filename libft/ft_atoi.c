@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/10 15:59:44 by tde-brit          #+#    #+#             */
-/*   Updated: 2018/10/10 16:01:56 by tde-brit         ###   ########.fr       */
+/*   Created: 2018/10/08 14:11:51 by mfierlaf          #+#    #+#             */
+/*   Updated: 2018/10/23 11:46:54 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	long	res;
-	int		sign;
+	int		s;
 	long	of;
 
+	s = 1;
 	res = 0;
-	sign = 1;
-	while ((*str == '\n') || (*str == '\t') || (*str == '\v') ||
-			(*str == ' ') || (*str == '\f') || (*str == '\r'))
+	while (*str == '\t' || *str == '\v' || *str == '\n' || *str == '\r' ||
+			*str == '\f' || *str == ' ')
 		str++;
 	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
+		s = -1;
+	if (*str == '+' || *str == '-')
 		str++;
-	while (*str >= '0' && *str <= '9')
+	while (*str != '\0' && (ft_isdigit(*str) == 1))
 	{
 		of = res;
-		res = res * 10 + *str - '0';
-		if (of != 0 && ((of ^ res) < 0) && sign == -1)
+		res = res * 10 + (*str - '0');
+		if (of != 0 && (of ^ res) < 0 && s == -1)
 			return (0);
-		if (of != 0 && ((of ^ res) < 0) && sign == 1)
+		if (of != 0 && (of ^ res) < 0 && s == 1)
 			return (-1);
 		str++;
 	}
-	return (sign * (int)res);
+	return ((int)res * s);
 }
