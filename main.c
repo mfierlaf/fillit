@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:27:41 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/07 15:24:04 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/08 15:07:27 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,23 @@ static char **switchbasemain(char **tetro)
 int	main(int argc, char **argv)
 {
 	char	**tab;
-	int	*pos;
-	char *res;
+	char	*map;
+	int 	size;
+	int		check;
 
-	res = newtab(2);
-	if ((pos = malloc(sizeof(int) * 3)) == NULL)
-		return (0);
-	pos[0] = 0;
-	pos[1] = 0;
-	pos[2] = 1;
+	check = 0;
+	map = NULL;
 	if (argc != 2)
 		return (0);
 	if ((tab = tetrominos(argv)) == NULL)
 		return (0);
-	tab = switchbasemain(tab);
-	res = fillit(tab, res, 2, pos);
-	ft_putstr(res);
+	if ((size = start_size(tetrominos)) == 2)
+	{
+		tab = switchbasemain(tab);
+		check = 1;
+	}
+	map = fillit(tab, map, size, check);
+	ft_putstr(map);
+	free(map)
 	return (0);
 }

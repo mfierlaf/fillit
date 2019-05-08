@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 14:31:46 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/08 15:07:21 by mfierlaf         ###   ########.fr       */
+/*   Created: 2019/05/08 13:56:14 by mfierlaf          #+#    #+#             */
+/*   Updated: 2019/05/08 14:27:52 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char *fillit(char **tetrominos, char *map, int size, int check)
+int solve(char **tetrominos, char letter, char *map)
 {
 	int i;
 
 	i = 0;
-	free(map);
-	if (check == 0)
+	if (tetrominos != NULL)
+		return (1);
+	while (map[i])
 	{
-		while (tetrominos[i])
-		{
-			switchbase(tetrominos[i], size);
-			i++;
-		}
+		if (issetable(tetrominos, map[i]) == 1)
+			{
+				set(tetrominos);
+				if (solve(tetrominos + 1, letter + 1, map) == 1)
+					return (1);
+				else
+					unset(letter);
+			}
+		i++;
 	}
-	map = newtab(size);
-	if ((solve(tetrominos, 'A', map)) == 0)
-		fillit(tetrominos, map, size++, 0);
-	return (1);
+	return (0);
 }
