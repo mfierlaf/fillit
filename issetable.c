@@ -6,13 +6,13 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 14:21:48 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/07 18:01:22 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/09 16:26:24 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int issetable(char *res, char *tetro, int pos, int size)
+int		issetable(char *tetro, char *map, int pos, int size)
 {
 	int i;
 	int j;
@@ -23,7 +23,7 @@ int issetable(char *res, char *tetro, int pos, int size)
 	{
 		if (tetro[i] + pos > (size * size + size))
 				return (0);
-		if (res[tetro[i] + pos] != '.')
+		if (map[tetro[i] + pos] != '.')
 			j++;
 		i++;
 	}

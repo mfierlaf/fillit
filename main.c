@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:27:41 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/08 15:07:27 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/09 16:33:38 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static char **switchbasemain(char **tetro)
 	}
 	return (tetro);
 }
+
 int	main(int argc, char **argv)
 {
 	char	**tab;
@@ -48,13 +49,16 @@ int	main(int argc, char **argv)
 		return (0);
 	if ((tab = tetrominos(argv)) == NULL)
 		return (0);
-	if ((size = start_size(tetrominos)) == 2)
+	size = start_size(tab);
+	printf("apres stat_size\n");
+	if (size == 2)
 	{
 		tab = switchbasemain(tab);
 		check = 1;
 	}
+	printf("apres switchbasemain\n");
 	map = fillit(tab, map, size, check);
 	ft_putstr(map);
-	free(map)
+	free(map);
 	return (0);
 }

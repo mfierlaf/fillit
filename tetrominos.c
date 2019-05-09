@@ -6,15 +6,15 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/08 15:00:21 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/09 16:50:22 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char **tetrominos(char **argv)
+int **tetrominos(char **argv)
 {
-	char **tab;
+	int **tab;
 	int cpt;
 	int ret;
 	int fd;
@@ -37,6 +37,7 @@ char **tetrominos(char **argv)
 		if (verif(line) == 0)
 			return (NULL);
 		tab[cpt] = pos(line);
+		printf("tab[cpt] = %s\n", tab[cpt]);
 		tab[cpt] = setmin(tab[cpt]);
 		cpt++;
 		if (cpt > 25)
@@ -53,5 +54,6 @@ char **tetrominos(char **argv)
 	}
 	if (ret != 0)
 		return (NULL);
+	ft_print_table(tab);
 	return(tab);
 }

@@ -6,13 +6,13 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 13:56:14 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/08 14:27:52 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/09 16:27:50 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int solve(char **tetrominos, char letter, char *map)
+int solve(char **tetrominos, char letter, char *map, int size)
 {
 	int i;
 
@@ -21,13 +21,13 @@ int solve(char **tetrominos, char letter, char *map)
 		return (1);
 	while (map[i])
 	{
-		if (issetable(tetrominos, map[i]) == 1)
+		if (issetable(tetrominos[i], map, i, size) == 1)
 			{
-				set(tetrominos);
-				if (solve(tetrominos + 1, letter + 1, map) == 1)
+				set(tetrominos[i], letter, map, i);
+				if (solve(tetrominos + 1, letter + 1, map, size) == 1)
 					return (1);
 				else
-					unset(letter);
+					unset(letter, map);
 			}
 		i++;
 	}
