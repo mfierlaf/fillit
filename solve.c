@@ -17,7 +17,7 @@ int solve(char **tetrominos, char letter, char *map, int size)
 	int i;
 
 	i = 0;
-	if (tetrominos != NULL)
+	if (tetrominos == NULL)
 		return (1);
 	while (map[i])
 	{
