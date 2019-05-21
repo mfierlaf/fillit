@@ -51,11 +51,11 @@ int	main(int argc, char **argv)
 		return (0);
 	size = start_size(tab);
 	printf("apres stat_size\n");
-	if (size == 2)
-	{
+	
+	
 		tab = switchbase(tab, 4, size);
 		check = 1;
-	}
+	
 	printf("apres switchbasemain\n");
 	map = fillit(tab, map, size, check);
 	ft_putstr(map);
