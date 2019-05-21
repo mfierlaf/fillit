@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 	printf("apres stat_size\n");
 	if (size == 2)
 	{
-		tab = switchbasemain(tab);
+		tab = switchbase(tab, 4, size);
 		check = 1;
 	}
 	printf("apres switchbasemain\n");
