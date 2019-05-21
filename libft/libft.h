@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 15:51:47 by tde-brit          #+#    #+#             */
-/*   Updated: 2018/10/29 18:26:00 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/05/21 14:17:49 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,6 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			*ft_freechararray(char **dst, int j);
+int				ft_sqrt(int nb);
+void			ft_print_table(char **tab);
 #endif

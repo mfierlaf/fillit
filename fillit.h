@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 14:40:53 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/09 16:27:12 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/21 16:56:02 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char 	*pos(char *line);
 char	*setmin(char *pos);
 char	*fillit(char **tetro, char *map, int size, int chec);
 char	*newtab(int i);
-void 	switchbase(char ***tetro, int size);
+void 	switchbase(char ***tetro, int o_size, int n_size);
 int 	issetable(char *tetro, char *map, int pos, int size);
 void	unset(char letter, char *map);
 int		solve(char **tetrominos, char letter, char *map, int size);

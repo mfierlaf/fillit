@@ -6,7 +6,7 @@
 #    By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/04 15:16:48 by tde-brit          #+#    #+#              #
-#    Updated: 2018/10/28 20:02:49 by tde-brit         ###   ########.fr        #
+#    Updated: 2019/05/21 14:23:17 by tde-brit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr ft_memcmp ft_strlen \
 ft_strlcat ft_strchr ft_strrchr ft_strnstr ft_memalloc ft_memdel ft_strnew \
 ft_strdel ft_strclr ft_striter ft_striteri ft_strmap ft_strmapi ft_strequ \
 ft_strnequ ft_strsub ft_strjoin ft_strtrim ft_strsplit ft_lstnew \
-ft_freechararray ft_lstdelone ft_lstdel ft_lstadd ft_lstiter ft_lstmap
+ft_freechararray ft_lstdelone ft_lstdel ft_lstadd ft_lstiter ft_lstmap \
+ft_print_table ft_sqrt
 
 all : $(NAME)
 
