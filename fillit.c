@@ -17,7 +17,7 @@ char *fillit(char **tetrominos, char *map, int size, int check)
 	free(map);
 	printf("apres free map\n");
 	if (check == 0)
-		switchbase(&tetrominos, size, size);
+		switchbase(&tetrominos, size - 1, size);
 	printf("apres stat_size check = %d\n", check);
 	printf("apres switchbqse\n");
 	map = newtab(size);
