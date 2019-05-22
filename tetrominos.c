@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/21 14:47:20 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/05/22 14:19:11 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ char **tetrominos(char **argv)
 	}
 	if (ret != 0)
 		return (NULL);
-	ft_print_table(tab);
+	//ft_print_table(tab);
 	return(tab);
 }

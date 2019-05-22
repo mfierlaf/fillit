@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 14:21:48 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/09 16:26:24 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/22 17:24:18 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int		issetable(char *tetro, char *map, int pos, int size)
 	{
 		if (tetro[i] + pos > (size * size + size))
 				return (0);
-		if (map[tetro[i] + pos] != '.')
+		printf("map[tetro[i] + pos] = %c\n", map[tetro[i] + pos]);
+		printf("tetro[i] + pos = %d\n", tetro[i] + pos);
+		if (map[tetro[i] + pos] == '.')
 			j++;
 		i++;
 	}
