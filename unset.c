@@ -6,13 +6,13 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 14:10:05 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/09 16:28:14 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/23 15:35:28 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	unset(char letter, char *map)
+char	*unset(char letter, char *map)
 {
 	int i;
 
@@ -23,4 +23,5 @@ void	unset(char letter, char *map)
 			map[i] = '.';
 		i++;
 	}
+	return (map);
 }

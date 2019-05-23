@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 13:56:14 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/22 17:31:31 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/05/23 17:16:19 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ int solve(char **tetrominos, char letter, char *map, int size)
 				printf("apres issetable\n");
 				set(*tetrominos, letter, map, i);
 				printf("apres set\n");
-				if (solve(tetrominos + 1, letter + 1, map, size) == 1)
+				if ((solve(tetrominos + 1, letter + 1, map, size)) == 1 )
+						//|| (solve(tetrominos - 1, letter - 1, map, size) == 1))
 					return (1);
 				else
-					unset(letter, map);
+					map = unset(letter, map);
 			}
 		i++;
 	}
