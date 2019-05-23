@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/22 14:19:11 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/05/23 17:37:36 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char **tetrominos(char **argv)
 	line = ft_strnew(20);
 	cpt = 0;
 	fd = open(argv[1] , O_RDONLY);
+	printf("c'est malloc\n");
 	if ((tab = malloc(sizeof(char*) * 27)) == NULL)
 		return (NULL);
 	while (cpt <= 26)
@@ -34,23 +35,26 @@ char **tetrominos(char **argv)
 	ret = read(fd, line, 21);
 	while (ret == 21 || ret == 20)
 	{
+		printf("c'est verif\n");
 		if (verif(line) == 0)
 			return (NULL);
 		tab[cpt] = pos(line);	
 		tab[cpt] = setmin(tab[cpt]);
 		cpt++;
-		if (cpt > 25)
+		if (cpt > 26)
 		{
 			while (cpt >= 0)
 			{
 				free(tab[cpt]);
 				cpt--;
 			}
+			printf("c'est > 25\n");
 			free(tab);
 			return (NULL);
 		}
 		ret = read(fd, line, 21);
 	}
+	printf("ret = %d\n", ret);
 	if (ret != 0)
 		return (NULL);
 	//ft_print_table(tab);
