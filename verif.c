@@ -26,16 +26,13 @@ int	verif(char *line)
 	n = 0;
 	if (line[20] != '\0' && line[20] != '\n')
 		return (0);
-//	printf("c'est line[20]\n");
 	while (n < 20)
 	{
 		i = 0;
 		while (line[n] != '\0' && line[n] != '\n')
 		{
-//			printf("c'est != . et #\n");
 			if (line[n] != '.' && line[n] != '#')
 				return (0);
-//			tab[k][i] = line[n];
 			if (line[n] == '#')
 			{
 				cpt++;
@@ -54,10 +51,8 @@ int	verif(char *line)
 		n++;
 		k++;
 	}
-//	printf("cpt = %d\n", cpt);
 	if (cpt != 4 || i != 4 || k != 4)
 		return (0);
-//	printf(" j = %d\n", j);
 	if (j == 6 || j == 8)
 		return (1);
 	else
