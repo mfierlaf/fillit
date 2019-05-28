@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 14:15:05 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/23 17:54:05 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/28 14:32:03 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	verif(char *line)
 	n = 0;
 	if (line[20] != '\0' && line[20] != '\n')
 		return (0);
-	printf("c'est line[20]\n");
+//	printf("c'est line[20]\n");
 	while (n < 20)
 	{
 		i = 0;
 		while (line[n] != '\0' && line[n] != '\n')
 		{
-			printf("c'est != . et #\n");
+//			printf("c'est != . et #\n");
 			if (line[n] != '.' && line[n] != '#')
 				return (0);
 //			tab[k][i] = line[n];
@@ -54,10 +54,10 @@ int	verif(char *line)
 		n++;
 		k++;
 	}
-	printf("cpt = %d\n", cpt);
+//	printf("cpt = %d\n", cpt);
 	if (cpt != 4 || i != 4 || k != 4)
 		return (0);
-	printf(" j = %d\n", j);
+//	printf(" j = %d\n", j);
 	if (j == 6 || j == 8)
 		return (1);
 	else
