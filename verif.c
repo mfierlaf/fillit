@@ -6,13 +6,13 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 14:15:05 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/30 15:15:18 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/30 15:33:17 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	occurence(char *line, int n, int j)
+static int	occurence(char *line, int n, int j)
 {
 	while (n < 20)
 	{
@@ -38,7 +38,7 @@ int	occurence(char *line, int n, int j)
 	return (j);
 }
 
-int	ligne(char *line)
+static int	ligne(char *line)
 {
 	int i;
 	int k;
@@ -62,7 +62,7 @@ int	ligne(char *line)
 	return (1);
 }
 
-int	compteur(char *line, int n)
+static int	compteur(char *line, int n)
 {
 	int cpt;
 
@@ -82,7 +82,7 @@ int	compteur(char *line, int n)
 	return (1);
 }
 
-int	verif(char *line)
+int			verif(char *line)
 {
 	int j;
 	int n;
