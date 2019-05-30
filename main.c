@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:27:41 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/28 14:29:57 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/28 15:10:32 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 int	main(int argc, char **argv)
 {
 	char	**tab;
-	int 	size;
-	char 	*res;
+	int		size;
+	char	*res;
 
 	if (argc != 2)
 		return (0);
-//	printf("c'est tetrominos\n");
 	if ((tab = tetrominos(argv)) == NULL)
+	{
+		ft_putstr("error");
 		return (0);
+	}
 	size = start_size(tab);
-//	printf("apres stat_size\n");
 	tab = switchbase(tab, 4, size);
-//	printf("apres switchbasemain\n");
 	if ((res = fillit(tab, size)) == NULL)
 	{
 		ft_putstr("error");
