@@ -6,19 +6,14 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:21:20 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/28 15:01:58 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/05/30 15:31:51 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*setmin(char *pos)
+static int	first(char *pos, int minmod, int i)
 {
-	int i;
-	int minmod;
-
-	minmod = 3;
-	i = 0;
 	while (pos[0] >= 5)
 	{
 		pos[0] -= 5;
@@ -37,6 +32,17 @@ char	*setmin(char *pos)
 			minmod = pos[i];
 		i++;
 	}
+	return (minmod);
+}
+
+char		*setmin(char *pos)
+{
+	int i;
+	int minmod;
+
+	minmod = 3;
+	i = 0;
+	minmod = first(pos, minmod, i);
 	i = 0;
 	while (minmod % 5 > 0)
 	{
