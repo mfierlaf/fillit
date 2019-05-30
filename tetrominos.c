@@ -6,13 +6,13 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/30 15:21:27 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/30 16:24:47 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void free_tab(char **tab, int cpt)
+void	free_tab(char **tab, int cpt)
 {
 	while (cpt >= 0)
 	{
