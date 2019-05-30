@@ -6,17 +6,54 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/28 15:05:12 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/05/30 15:21:27 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
+void free_tab(char **tab, int cpt)
+{
+	while (cpt >= 0)
+	{
+		free(tab[cpt]);
+		cpt--;
+	}
+	free(tab);
+	tab = NULL;
+}
+
+char	**loop(char *line, char **tab, int fd, int cpt)
+{
+	int ret;
+	int check;
+
+	ret = read(fd, line, 21);
+	while (ret == 21 || ret == 20)
+	{
+		if (verif(line) == 0)
+			return (NULL);
+		tab[cpt] = pos(line);
+		tab[cpt] = setmin(tab[cpt]);
+		cpt++;
+		if (cpt > 26)
+		{
+			free_tab(tab, cpt);
+			return (NULL);
+		}
+		if (ret == 20)
+			check = 1;
+		ret = read(fd, line, 21);
+	}
+	if (ret != 0 || check != 1)
+		return (NULL);
+	return (tab);
+}
+
 char	**tetrominos(char **argv)
 {
 	char	**tab;
 	int		cpt;
-	int		ret;
 	int		fd;
 	char	*line;
 
@@ -31,27 +68,7 @@ char	**tetrominos(char **argv)
 		cpt++;
 	}
 	cpt = 0;
-	ret = read(fd, line, 21);
-	while (ret == 21 || ret == 20)
-	{
-		if (verif(line) == 0)
-			return (NULL);
-		tab[cpt] = pos(line);
-		tab[cpt] = setmin(tab[cpt]);
-		cpt++;
-		if (cpt > 26)
-		{
-			while (cpt >= 0)
-			{
-				free(tab[cpt]);
-				cpt--;
-			}
-			free(tab);
-			return (NULL);
-		}
-		ret = read(fd, line, 21);
-	}
-	if (ret != 0)
+	if ((tab = loop(line, tab, fd, cpt)) == NULL)
 		return (NULL);
 	return (tab);
 }
