@@ -6,13 +6,13 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 15:06:14 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/23 18:04:46 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/28 15:01:06 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	set(char *tetrominos, char letter, char *map,int pos)
+void	set(char *tetrominos, char letter, char *map, int pos)
 {
 	int i;
 

@@ -6,13 +6,13 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 16:37:59 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/09 15:24:38 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/05/28 15:03:40 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int start_size(char **tetrominos)
+int	start_size(char **tetrominos)
 {
 	int i;
 

@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 08:37:57 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/23 15:20:28 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/05/28 14:59:57 by tde-brit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*newtab(int i)
 {
-	char *res;
-	int j;
-	int size;
+	char	*res;
+	int		j;
+	int		size;
 
 	j = 0;
 	size = i;
@@ -25,7 +25,7 @@ char	*newtab(int i)
 		return (NULL);
 	while (j < i)
 	{
-		if(j % (size + 1) == size)
+		if (j % (size + 1) == size)
 			res[j] = '\n';
 		else
 			res[j] = '.';
