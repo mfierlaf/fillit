@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:27:41 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/05/28 15:10:32 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/06/04 13:42:03 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	main(int argc, char **argv)
 	char	*res;
 
 	if (argc != 2)
+	{
+		ft_putstr("usage : ./fillit [fichier.txt]\n");
 		return (0);
+	}
 	if ((tab = tetrominos(argv)) == NULL)
 	{
 		ft_putstr("error");
