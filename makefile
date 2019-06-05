@@ -6,7 +6,7 @@
 #    By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/23 14:31:49 by mfierlaf          #+#    #+#              #
-#    Updated: 2019/06/05 16:50:11 by mfierlaf         ###   ########.fr        #
+#    Updated: 2019/06/05 16:37:01 by tde-brit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,14 @@ FLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) -o $(NAME) $(SRCS) libft/libft.a
+	make re -C ./libft
+	gcc $(FLAGS) -g -o $(NAME) $(SRCS) libft/libft.a
 
 clean:
-	rm -f $(OBJETS)
+	make clean -C ./libft
 
 fclean: clean
 	rm -f $(NAME)
+	make fclean -C ./libft
 
 re: fclean all
