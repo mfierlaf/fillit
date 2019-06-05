@@ -55,9 +55,8 @@ char	**tetrominos(char **argv)
 	char	**tab;
 	int		cpt;
 	int		fd;
-	char	*line;
+	char	line[20];
 
-	line = ft_strnew(20);
 	cpt = 0;
 	fd = open(argv[1], O_RDONLY);
 	if ((tab = malloc(sizeof(char*) * 27)) == NULL)
