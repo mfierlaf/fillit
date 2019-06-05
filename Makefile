@@ -23,7 +23,7 @@ all: $(NAME)
 
 $(NAME):
 	make re -C ./libft
-	gcc $(FLAGS) -g -o $(NAME) $(SRCS) libft/libft.a
+	gcc $(FLAGS) -o $(NAME) $(SRCS) libft/libft.a
 
 clean:
 	make clean -C ./libft
