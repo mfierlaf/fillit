@@ -6,14 +6,14 @@
 #    By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/23 14:31:49 by mfierlaf          #+#    #+#              #
-#    Updated: 2019/05/07 13:30:11 by mfierlaf         ###   ########.fr        #
+#    Updated: 2019/06/05 16:50:11 by mfierlaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 SRCS = fillit.c main.c issetable.c newtab.c pos.c setmin.c tetrominos.c  \
-		switchbase.c verif.c
+		switchbase.c verif.c solve.c start_size.c set.c unset.c clean.c
 
 HEADERS = fillit.h
 
