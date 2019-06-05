@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 14:40:53 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/05/28 14:57:26 by tde-brit         ###   ########.fr       */
+/*   Updated: 2019/06/05 14:43:37 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	unset(char letter, char *map);
 int		solve(char **tetrominos, char letter, char *map, int size);
 void	set(char *tetrominos, char letter, char *map, int pos);
 int		start_size(char **tetrominos);
+void	clean(char *res, char **tetro);
 #endif

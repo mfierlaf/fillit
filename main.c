@@ -6,7 +6,7 @@
 /*   By: tde-brit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:27:41 by tde-brit          #+#    #+#             */
-/*   Updated: 2019/06/04 13:42:03 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/06/05 14:45:32 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	main(int argc, char **argv)
 	if ((res = fillit(tab, size)) == NULL)
 	{
 		ft_putstr("error");
+		clean(res, tab);
 		return (0);
 	}
 	ft_putstr(res);
-	free(res);
-	res = NULL;
+	clean(res, tab);
 	return (0);
 }
