@@ -6,7 +6,7 @@
 /*   By: mfierlaf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:03:24 by mfierlaf          #+#    #+#             */
-/*   Updated: 2019/06/05 14:46:59 by mfierlaf         ###   ########.fr       */
+/*   Updated: 2019/06/05 18:48:24 by mfierlaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	**loop(char *line, char **tab, int fd, int cpt)
 	int check;
 
 	ret = read(fd, line, 21);
+	line[ret] = '\0';
 	while (ret == 21 || ret == 20)
 	{
 		if (verif(line) == 0)
@@ -44,6 +45,7 @@ char	**loop(char *line, char **tab, int fd, int cpt)
 		if (ret == 20)
 			check = 1;
 		ret = read(fd, line, 21);
+		line[ret] = '\0';
 	}
 	if (ret != 0 || check != 1)
 		return (NULL);
